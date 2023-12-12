@@ -12,7 +12,7 @@ export const Send = () => {
 
     const EXCHANGE_VALUE = "0.00"
     return (
-        <div className="bg-[#12121d] h-full">
+        <div className="bg-[#12121d] h-[]">
             <Back name={"back"} title={"Send"} />
             <div className="flex-col text-[#fff] justify-center items-center flex pt-[40px] pb-[30px]">
                 <h2 className="text-[4.4rem] font-bold">{onGetBalance()}</h2>
@@ -31,6 +31,12 @@ export const Send = () => {
                 <input type="text" placeholder="Send to account ID" className="text-[#fff] bg-[#ffffff0a] w-full focus:outline-none text-[16px] px-[20px] py-[10px] rounded-[9999px] "></input>
                 <p className="text-[#fff] opacity-60 mt-3">The account ID must include a Top Level Account such as.near or contain exactly 64 characters.
                 </p>
+            </div>
+            <div className="fixed bottom-0  max-w-[34.8rem] w-full bg-[#ffffff0a] p-[16px] rounded-[10px]">
+                <button className="w-full py-[10px] rounded-[9999px] text-[#fff] font-bold text-[1.4rem]" style={{
+                    background:
+                        "linear-gradient(209deg, rgb(37, 5, 202), rgb(120, 77, 229))",
+                }}>SEND</button>
             </div>
         </div>
     );
