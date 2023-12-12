@@ -15,7 +15,7 @@ export const Home = (props: Props) => {
     }
 
     return (
-        <div className="bg-[#12121d] h-full">
+        <div className="bg-[#12121d] h-full  p-[16px]">
             <div className="flex-col text-[#fff] justify-center items-center flex pt-[40px] pb-[30px]">
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">

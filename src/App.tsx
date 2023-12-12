@@ -4,7 +4,7 @@ import { Send } from "./page/Send";
 
 function App() {
   return (
-    <div className="h-screen max-w-[38rem] p-[16px]" style={{ margin: '0 auto' }}>
+    <div className="h-screen max-w-[38rem]" style={{ margin: '0 auto' }}>
       <Routes>
         <Route path={'/'} element={<Home />} />
         <Route path={'/Send'} element={<Send />} />
