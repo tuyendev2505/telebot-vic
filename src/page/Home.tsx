@@ -1,3 +1,62 @@
-export const Home = () => {
-    return <h1>Hoem</h1>
-}
+import { useNavigate } from "react-router-dom";
+import { SVGIcon } from "../components/SVGIcon/SVGIcon";
+import { Action } from "./components/Action";
+import { AssetCard } from "./components/AssetCard";
+
+export type Props = {};
+export const Home = (props: Props) => {
+    const navigate = useNavigate()
+    const onGetBalance = () => {
+        return 0;
+    };
+
+    const onHandleSend = () => {
+        navigate('/send')
+    }
+
+    return (
+        <div className="bg-[#12121d] h-full">
+            <div className="flex-col text-[#fff] justify-center items-center flex pt-[40px] pb-[30px]">
+                <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
+                <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
+                    Available Balance
+                </p>
+            </div>
+            <div className="flex flex-row justify-evenly">
+                <Action name="send" title="Send" onAction={onHandleSend} />
+                <Action name="stake" title="Deposit" onAction={() => { }} />
+                <Action name="withdraw" title="Withdraw" onAction={() => { }} />
+            </div>
+            <div className="bg-[#1c1c1c] p-[10px] rounded-[8px] mt-[30px] ">
+                <div className="flex flex-row justify-between">
+                    <p className="text-[1.28rem] text-[#fff] flex flex-row items-center font-[500] rounded-[20px] opacity-50">
+                        My Asset
+                    </p>
+                    <button className="text-[#fff] flex-row flex items-center bg-[#313131] px-[10px] py-[5px] rounded-[20px] opacity-50">
+                        <SVGIcon name="refresh" /> <span className="ml-[4px]">Refresh</span>
+                    </button>
+                </div>
+                <div className="mt-[15px]">
+                    <AssetCard
+                        name={"near"}
+                        tokenName={"Near"}
+                        tokenValue={0}
+                        currentPrice={2.27}
+                        exchangePrice={0}
+                        title={""}
+                        onAction={onHandleSend}
+                    />
+                    <AssetCard
+                        name={"near"}
+                        tokenName={"Near"}
+                        tokenValue={0}
+                        currentPrice={2.27}
+                        exchangePrice={0}
+                        title={""}
+                        onAction={onHandleSend}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
