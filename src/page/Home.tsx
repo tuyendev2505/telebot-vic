@@ -9,9 +9,9 @@ import { useEffect,useState } from "react";
 
 export type Props = {};
 export const Home = (props: Props) => {
-    const { jwt } = useJwt();
+    const { j } = useJwt()
 
-    console.log("JWT:",jwt);
+    console.log("JWT:",j);
     const navigate = useNavigate()
     const { handleLogin } = useAA()
     // const { webApp } = useTelegram()
@@ -46,9 +46,7 @@ export const Home = (props: Props) => {
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
                     Available Balance
-                    <p>
-                jwt: {jwt ? true : false}
-            </p>
+                  
                  
                 </p>
             </div>
