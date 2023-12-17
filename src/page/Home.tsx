@@ -9,7 +9,7 @@ import { useEffect,useState } from "react";
 
 export type Props = {};
 export const Home = (props: Props) => {
-    const { j } = useJwt()
+    const { jwtFromLocalStorage } = useJwt()
 
     const navigate = useNavigate()
     const { handleLogin } = useAA()
