@@ -46,8 +46,6 @@ export const Home = (props: Props) => {
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
                     Available Balance
-                  
-                 
                 </p>
             </div>
             <div className="flex flex-row justify-evenly">
