@@ -44,10 +44,12 @@ export const useJwt = () => {
             setJwt(jwtFromLocalStorage);
         }
     }, []);
+
     console.log(jwt);
 
     return jwt;
 };
+
 
 export const useAA = () => {
 

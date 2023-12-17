@@ -9,6 +9,9 @@ import { useEffect,useState } from "react";
 
 export type Props = {};
 export const Home = (props: Props) => {
+    const { jwt } = useJwt();
+
+    console.log(jwt);
     const navigate = useNavigate()
     const { handleLogin } = useAA()
     // const { webApp } = useTelegram()
