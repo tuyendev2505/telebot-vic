@@ -11,7 +11,6 @@ export type Props = {};
 export const Home = (props: Props) => {
     const { j } = useJwt()
 
-    console.log("JWT:",j);
     const navigate = useNavigate()
     const { handleLogin } = useAA()
     // const { webApp } = useTelegram()
