@@ -2,16 +2,17 @@ import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
-// import { useAA } from "../hooks/useAA";
+import { useAA } from "../hooks/useAA";
 // import { useTelegram } from "../hooks/useTelegram";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 
 export type Props = {};
 export const Home = (props: Props) => {
     const navigate = useNavigate()
-    // const { handleLogin } = useAA()
+    const { handleLogin } = useAA()
     // const { webApp } = useTelegram()
+
     const onGetBalance = () => {
         return 0;
     };
@@ -42,6 +43,7 @@ export const Home = (props: Props) => {
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
                     Available Balance
+                 
                 </p>
             </div>
             <div className="flex flex-row justify-evenly">

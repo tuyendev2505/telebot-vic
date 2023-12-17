@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AuthType, ParticleNetwork, UserInfo } from '@particle-network/auth';
 import { ParticleProvider } from '@particle-network/provider';
-import { Viction } from '@particle-network/chains';
+import { VictionTestnet } from '@particle-network/chains';
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ethers } from 'ethers';
 
@@ -13,8 +13,8 @@ const config = {
 
 const particle = new ParticleNetwork({
     ...config,
-    chainName: Viction.name,
-    chainId: Viction.id,
+    chainName: VictionTestnet.name,
+    chainId: VictionTestnet.id,
     wallet: { displayWalletEntry: true }
 });
 
@@ -22,23 +22,38 @@ const smartAccount = new SmartAccount(new ParticleProvider(particle.auth), {
     ...config,
     aaOptions: {
         accountContracts: {
-            simple: [{ chainIds: [Viction.id], version: '1.0.0' }]
+            simple: [{ chainIds: [VictionTestnet.id], version: '1.0.0' }]
         }
     }
 });
 
 const customProvider = new ethers.providers.Web3Provider(new AAWrapProvider(smartAccount), "any");
 
+
 particle.setERC4337({
     name: 'SIMPLE',
     version: '1.0.0'
 });
+
+export const useJwt = () => {
+    const [jwt, setJwt] = useState<string>();
+
+    useEffect(() => {
+        const jwtFromLocalStorage = localStorage.getItem('particle-jwt');
+        if (jwtFromLocalStorage) {
+            setJwt(jwtFromLocalStorage);
+        }
+    }, []);
+
+    return jwt;
+};
+
 export const useAA = () => {
 
     console.log({
-        chainName: Viction.name,
-        chainId: Viction.id,
-        Viction
+        chainName: VictionTestnet.name,
+        chainId: VictionTestnet.id,
+        VictionTestnet
     })
     const [userInfo, setUserInfo] = useState<UserInfo>();
     const [balance, setBalance] = useState<number>(0);
@@ -60,17 +75,18 @@ export const useAA = () => {
         console.log("USER", user)
         // setUserInfo(user as UserInfo);
     }
+    
 
-    const executeUserOp = async () => {
-        const signer = customProvider.getSigner();
-        const tx = {
-            to: "0x000000000000000000000000000000000000dEaD",
-            value: ethers.utils.parseEther("0.001"),
-        };
-        const txResponse = await signer.sendTransaction(tx);
-        const txReceipt = await txResponse.wait();
-        console.log('Transaction hash:', txReceipt.transactionHash);
-    };
+    // const executeUserOp = async () => {
+    //     const signer = customProvider.getSigner();
+    //     const tx = {
+    //         to: "0x000000000000000000000000000000000000dEaD",
+    //         value: ethers.utils.parseEther("0.001"),
+    //     };
+    //     const txResponse = await signer.sendTransaction(tx);
+    //     const txReceipt = await txResponse.wait();
+    //     console.log('Transaction hash:', txReceipt.transactionHash);
+    // };
 
     useEffect(() => {
         if (userInfo) {
@@ -80,6 +96,7 @@ export const useAA = () => {
 
 
     return {
-        handleLogin
+        handleLogin,
+        useJwt
     }
 }
