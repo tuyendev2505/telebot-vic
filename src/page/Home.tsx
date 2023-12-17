@@ -2,17 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
-import { useAA,useJwt } from "../hooks/useAA";
-// import { useTelegram } from "../hooks/useTelegram";
-import { useEffect,useState } from "react";
+import { useEffect, useRef } from "react";
 
 
 export type Props = {};
 export const Home = (props: Props) => {
-    const { j } = useJwt()
-
     const navigate = useNavigate()
-    const { handleLogin } = useAA()
+    // Refs
+    const telegramWrapperRef = useRef<HTMLDivElement>(null);
     // const { webApp } = useTelegram()
 
     const onGetBalance = () => {
@@ -24,23 +21,33 @@ export const Home = (props: Props) => {
         navigate('/send')
     }
 
+    // useEffect(() => {
+    //     // Replace 'YOUR_BOT_USERNAME' with your actual bot username
+    //     const botUsername = 'televicbot';
+
+    //     const script = document.createElement('script');
+    //     script.src = `https://telegram.org/js/telegram-widget.js?6`;
+    //     script.setAttribute('data-telegram-login', botUsername);
+    //     script.setAttribute('data-size', 'large');
+    //     script.setAttribute('data-radius', '10');
+    //     script.setAttribute('data-auth-url', 'https://d8a8-42-113-119-130.ngrok-free.app/login');
+    //     script.setAttribute('data-request-access', 'write');
+
+    //     document.body.appendChild(script);
+    // }, [])
     useEffect(() => {
-        // Replace 'YOUR_BOT_USERNAME' with your actual bot username
-        const botUsername = 'televicbot';
+        const scriptElement = document.createElement('script');
+        scriptElement.src = 'https://telegram.org/js/telegram-widget.js?22';
+        scriptElement.setAttribute('data-telegram-login', 'televicbot');
+        scriptElement.setAttribute('data-size', 'large');
+        scriptElement.setAttribute('data-auth-url', 'https://e592-58-187-229-24.ngrok-free.app/login');
+        scriptElement.async = true;
 
-        const script = document.createElement('script');
-        script.src = `https://telegram.org/js/telegram-widget.js?6`;
-        script.setAttribute('data-telegram-login', botUsername);
-        script.setAttribute('data-size', 'large');
-        script.setAttribute('data-radius', '10');
-        script.setAttribute('data-auth-url', 'https://d8a8-42-113-119-130.ngrok-free.app/login');
-        script.setAttribute('data-request-access', 'write');
-
-        document.body.appendChild(script);
-    }, [])
+        telegramWrapperRef?.current?.appendChild(scriptElement);
+    }, []);
 
     return (
-        <div className="bg-[#12121d] h-full  p-[16px]">
+        <div className="bg-[#12121d] h-full  p-[16px]" ref={telegramWrapperRef}>
             <div className="flex-col text-[#fff] justify-center items-center flex pt-[40px] pb-[30px]">
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
