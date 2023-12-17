@@ -13,5 +13,5 @@ export const PNGIcon: React.FC<Props> = ({ name, width, height, ...rest }) => {
   if (width) style.width = width;
   if (height) style.height = height;
 
-  return <img style={style} src={Icon} {...rest} />;
+  return <img style={style} src={Icon} {...rest} alt='' />;
 };

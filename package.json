@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@particle-network/aa": "^1.2.0",
+    "@particle-network/auth": "^1.2.2",
+    "@particle-network/chains": "latest",
+    "@particle-network/provider": "^1.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +15,7 @@
     "@types/node": "^16.18.68",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "ethers": "5.7.2",
     "rc-select": "^14.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

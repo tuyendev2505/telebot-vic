@@ -2,17 +2,39 @@ import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
+// import { useAA } from "../hooks/useAA";
+// import { useTelegram } from "../hooks/useTelegram";
+import { useEffect } from "react";
+
 
 export type Props = {};
 export const Home = (props: Props) => {
     const navigate = useNavigate()
+    // const { handleLogin } = useAA()
+    // const { webApp } = useTelegram()
     const onGetBalance = () => {
         return 0;
     };
 
     const onHandleSend = () => {
+        // handleLogin('google')
         navigate('/send')
     }
+
+    useEffect(() => {
+        // Replace 'YOUR_BOT_USERNAME' with your actual bot username
+        const botUsername = 'televicbot';
+
+        const script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?6`;
+        script.setAttribute('data-telegram-login', botUsername);
+        script.setAttribute('data-size', 'large');
+        script.setAttribute('data-radius', '10');
+        script.setAttribute('data-auth-url', 'https://d8a8-42-113-119-130.ngrok-free.app/login');
+        script.setAttribute('data-request-access', 'write');
+
+        document.body.appendChild(script);
+    }, [])
 
     return (
         <div className="bg-[#12121d] h-full  p-[16px]">

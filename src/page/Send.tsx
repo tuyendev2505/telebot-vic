@@ -1,9 +1,4 @@
-import Select, { Option } from "rc-select";
-import { SVGIcon } from "../components/SVGIcon/SVGIcon";
-import { Action } from "./components/Action";
-import { AssetCard } from "./components/AssetCard";
 import { Back } from "./components/Back";
-import { Menu } from '@headlessui/react'
 
 export const Send = () => {
     const onGetBalance = () => {
