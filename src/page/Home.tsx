@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
-import { useAA } from "../hooks/useAA";
+import { useAA,useJwt } from "../hooks/useAA";
 // import { useTelegram } from "../hooks/useTelegram";
 import { useEffect,useState } from "react";
 
