@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 
 export type Props = {};
 export const Home = (props: Props) => {
+
     const navigate = useNavigate()
     // Refs
     const telegramWrapperRef = useRef<HTMLDivElement>(null);
