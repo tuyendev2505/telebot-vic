@@ -39,7 +39,7 @@ export const Home = (props: Props) => {
     useEffect(() => {
         const scriptElement = document.createElement('script');
         scriptElement.src = 'https://telegram.org/js/telegram-widget.js?22';
-        scriptElement.setAttribute('data-telegram-login', 'televicbot');
+        scriptElement.setAttribute('data-telegram-login', 'victiontelebot');
         scriptElement.setAttribute('data-size', 'large');
         scriptElement.setAttribute('data-auth-url', 'https://e592-58-187-229-24.ngrok-free.app/login');
         scriptElement.async = true;
