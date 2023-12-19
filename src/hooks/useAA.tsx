@@ -4,6 +4,10 @@ import { ParticleProvider } from '@particle-network/provider';
 import { VictionTestnet } from '@particle-network/chains';
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ethers } from 'ethers';
+import * as jwt from 'jsonwebtoken';
+import * as fs from 'fs';
+
+const privateKey = fs.readFileSync('jwt.key', 'utf8');
 
 const config = {
     projectId: process.env.REACT_APP_PROJECT_ID ?? '',
@@ -29,35 +33,12 @@ const smartAccount = new SmartAccount(new ParticleProvider(particle.auth), {
 
 const customProvider = new ethers.providers.Web3Provider(new AAWrapProvider(smartAccount), "any");
 
-
 particle.setERC4337({
     name: 'SIMPLE',
     version: '1.0.0'
 });
 
-export const useJwt = () => {
-    const [jwt, setJwt] = useState<string>();
-
-    useEffect(() => {
-        const jwtFromLocalStorage = localStorage.getItem('particle-jwt');
-        if (jwtFromLocalStorage) {
-            setJwt(jwtFromLocalStorage);
-        }
-    }, []);
-
-    console.log(jwt);
-
-    return jwt;
-};
-
-
 export const useAA = () => {
-
-    console.log({
-        chainName: VictionTestnet.name,
-        chainId: VictionTestnet.id,
-        VictionTestnet
-    })
     const [userInfo, setUserInfo] = useState<UserInfo>();
     const [balance, setBalance] = useState<number>(0);
 
@@ -68,28 +49,15 @@ export const useAA = () => {
     };
 
     const handleLogin = async () => {
-        // const wallet = await particle.auth.createWallet(Viction.name)
+        const userId = 'Telejwt'; 
+        const token = jwt.sign({ userId }, privateKey, { expiresIn: '1h' });
+
         const user = !particle.auth.isLogin() ? await particle.auth.login({
-            // preferredAuthType: 'jwt',
-            account: 'heello',
+            account: token,
             hideLoading: true,
         }) : particle.auth.getUserInfo();
-        console.log("USER", user)
-
-        // setUserInfo(user as UserInfo);
-    }
-
-
-    // const executeUserOp = async () => {
-    //     const signer = customProvider.getSigner();
-    //     const tx = {
-    //         to: "0x000000000000000000000000000000000000dEaD",
-    //         value: ethers.utils.parseEther("0.001"),
-    //     };
-    //     const txResponse = await signer.sendTransaction(tx);
-    //     const txReceipt = await txResponse.wait();
-    //     console.log('Transaction hash:', txReceipt.transactionHash);
-    // };
+        console.log("USER", user);
+    };
 
     useEffect(() => {
         if (userInfo) {
@@ -97,9 +65,7 @@ export const useAA = () => {
         }
     }, [userInfo]);
 
-
     return {
         handleLogin,
-        useJwt
-    }
-}
+    };
+};
