@@ -67,18 +67,18 @@ export const useAA = () => {
         setBalance(+ethers.utils.formatEther(balance));
     };
 
-    const handleLogin = async (preferredAuthType: AuthType) => {
+    const handleLogin = async () => {
         // const wallet = await particle.auth.createWallet(Viction.name)
         const user = !particle.auth.isLogin() ? await particle.auth.login({
-            preferredAuthType: 'jwt',
-            account: 'JWT Value',
+            // preferredAuthType: 'jwt',
+            account: 'heello',
             hideLoading: true,
         }) : particle.auth.getUserInfo();
-
         console.log("USER", user)
+
         // setUserInfo(user as UserInfo);
     }
-    
+
 
     // const executeUserOp = async () => {
     //     const signer = customProvider.getSigner();

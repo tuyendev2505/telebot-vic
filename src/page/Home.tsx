@@ -3,6 +3,7 @@ import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
 import { useEffect, useRef } from "react";
+import { useAA } from "../hooks/useAA";
 
 
 export type Props = {};
@@ -12,6 +13,7 @@ export const Home = (props: Props) => {
     // Refs
     const telegramWrapperRef = useRef<HTMLDivElement>(null);
     // const { webApp } = useTelegram()
+    const { handleLogin } = useAA()
 
     const onGetBalance = () => {
         return 0;
@@ -19,7 +21,8 @@ export const Home = (props: Props) => {
 
     const onHandleSend = () => {
         // handleLogin('google')
-        navigate('/send')
+        handleLogin()
+        // navigate('/send')
     }
 
     // useEffect(() => {
