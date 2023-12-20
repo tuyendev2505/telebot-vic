@@ -21,24 +21,24 @@ export const Home = (props: Props) => {
 
     const onHandleSend = () => {
         // handleLogin('google')
-        handleLogin()
         // navigate('/send')
     }
 
-    // useEffect(() => {
-    //     // Replace 'YOUR_BOT_USERNAME' with your actual bot username
-    //     const botUsername = 'televicbot';
+    useEffect(() => {
+        // Replace 'YOUR_BOT_USERNAME' with your actual bot username
+        handleLogin()
+        const botUsername = 'televicbot';
 
-    //     const script = document.createElement('script');
-    //     script.src = `https://telegram.org/js/telegram-widget.js?6`;
-    //     script.setAttribute('data-telegram-login', botUsername);
-    //     script.setAttribute('data-size', 'large');
-    //     script.setAttribute('data-radius', '10');
-    //     script.setAttribute('data-auth-url', 'https://d8a8-42-113-119-130.ngrok-free.app/login');
-    //     script.setAttribute('data-request-access', 'write');
+        const script = document.createElement('script');
+        script.src = `https://telegram.org/js/telegram-widget.js?6`;
+        script.setAttribute('data-telegram-login', botUsername);
+        script.setAttribute('data-size', 'large');
+        script.setAttribute('data-radius', '10');
+        script.setAttribute('data-auth-url', 'https://d8a8-42-113-119-130.ngrok-free.app/login');
+        script.setAttribute('data-request-access', 'write');
 
-    //     document.body.appendChild(script);
-    // }, [])
+        document.body.appendChild(script);
+    }, [handleLogin])
     useEffect(() => {
         const scriptElement = document.createElement('script');
         scriptElement.src = 'https://telegram.org/js/telegram-widget.js?22';

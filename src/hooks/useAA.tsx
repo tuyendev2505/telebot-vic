@@ -4,10 +4,8 @@ import { ParticleProvider } from '@particle-network/provider';
 import { VictionTestnet } from '@particle-network/chains';
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ethers } from 'ethers';
-import * as jwt from 'jsonwebtoken';
-import * as fs from 'fs';
+// import * as jwt from 'jsonwebtoken';
 
-const privateKey = fs.readFileSync('jwt.key', 'utf8');
 
 const config = {
     projectId: process.env.REACT_APP_PROJECT_ID ?? '',
@@ -49,11 +47,11 @@ export const useAA = () => {
     };
 
     const handleLogin = async () => {
-        const userId = 'Telejwt'; 
-        const token = jwt.sign({ userId }, privateKey, { expiresIn: '1h' });
+        // const userId = 'Telejwt'; 
+        // const token = jwt.sign({ userId }, 'EWGRWWNSAR', { expiresIn: '24h' });
 
         const user = !particle.auth.isLogin() ? await particle.auth.login({
-            account: token,
+            account: "token",
             hideLoading: true,
         }) : particle.auth.getUserInfo();
         console.log("USER", user);
