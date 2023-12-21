@@ -16,7 +16,7 @@ The Victorious Wallet, built on Viction, offers a seamless entry point for web2 
 
 - **ReactJS:** A popular JavaScript library for building user interfaces, providing a robust and efficient front-end foundation for Victorious Wallet.
 
-- **Account Abstraction:** We implement account abstraction to enhance security and streamline the user experience, ensuring a safe and accessible environment for crypto transactions.
+- **Account Abstraction:** Account Abstraction helps you experience web3 products as easily as interacting with web2, enhancing security and streamlining the user experience for a safe and accessible environment for crypto transactions.
 
 - **Telegram Mini App:** Explore the integration of a Telegram mini app to bring additional functionality and communication channels to Victorious Wallet users.
 
