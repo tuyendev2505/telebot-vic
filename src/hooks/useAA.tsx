@@ -4,6 +4,7 @@ import { ParticleProvider } from '@particle-network/provider';
 import { VictionTestnet } from '@particle-network/chains';
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ethers } from 'ethers';
+import { useLocation, useParams } from 'react-router-dom';
 // import * as jwt from 'jsonwebtoken';
 
 
@@ -39,6 +40,8 @@ particle.setERC4337({
 export const useAA = () => {
     const [userInfo, setUserInfo] = useState<UserInfo>();
     const [balance, setBalance] = useState<number>(0);
+    const { search } = useLocation()
+
 
     const fetchBalance = async () => {
         const address = await smartAccount.getAddress();
@@ -46,12 +49,20 @@ export const useAA = () => {
         setBalance(+ethers.utils.formatEther(balance));
     };
 
-    const handleLogin = async () => {
+    useEffect(() => {
+        const query = new URLSearchParams(search);
+        const accessToken = query.get("accessToken") ?? ''
+        console.log("ACCESSTOKEN", accessToken)
+        handleLogin(accessToken)
+    }, [])
+
+    const handleLogin = async (accessToken: string) => {
         // const userId = 'Telejwt'; 
         // const token = jwt.sign({ userId }, 'EWGRWWNSAR', { expiresIn: '24h' });
 
         const user = !particle.auth.isLogin() ? await particle.auth.login({
-            account: "token",
+            preferredAuthType: 'jwt',
+            account: accessToken,
             hideLoading: true,
         }) : particle.auth.getUserInfo();
         console.log("USER", user);
