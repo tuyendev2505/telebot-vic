@@ -25,8 +25,8 @@ The Victorious Wallet, built on Viction, offers a seamless entry point for web2 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/victorious-wallet.git
-   cd victorious-wallet
+   git clone https://github.com/tuyendev2505/telebot-vic.git
+   cd telebot-vic
    npm install
    npm start
 
