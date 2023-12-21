@@ -4,14 +4,6 @@ The Victorious Wallet, built on Viction, offers a seamless entry point for web2 
 ![Cute Icon](./background.gif)
 
 
-## 🚀 Technologies Used
-
-- **ReactJS:** A popular JavaScript library for building user interfaces, providing a robust and efficient front-end foundation for Victorious Wallet.
-
-- **Account Abstraction:** We implement account abstraction to enhance security and streamline the user experience, ensuring a safe and accessible environment for crypto transactions.
-
-- **Telegram Mini App:** Explore the integration of a Telegram mini app to bring additional functionality and communication channels to Victorious Wallet users.
-
 ## ✨ Features
 
 - **Easy Access:** No need to create a separate wallet - get started with Viction effortlessly.
@@ -19,6 +11,14 @@ The Victorious Wallet, built on Viction, offers a seamless entry point for web2 
 - **User-Friendly Transactions:** Enjoy a smooth experience for buying, transferring, and receiving crypto.
 
 - **Payment Options:** purchase your wallet with crypto using credit cards or traditional payment methods.
+
+## 🚀 Technologies Used
+
+- **ReactJS:** A popular JavaScript library for building user interfaces, providing a robust and efficient front-end foundation for Victorious Wallet.
+
+- **Account Abstraction:** We implement account abstraction to enhance security and streamline the user experience, ensuring a safe and accessible environment for crypto transactions.
+
+- **Telegram Mini App:** Explore the integration of a Telegram mini app to bring additional functionality and communication channels to Victorious Wallet users.
 
 ## 🚦 Getting Started
 
