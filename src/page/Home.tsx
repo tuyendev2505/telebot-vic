@@ -2,18 +2,17 @@ import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
-import { useEffect, useRef } from "react";
 import { useAA } from "../hooks/useAA";
+// import { useTelegram } from "../hooks/useTelegram";
+import { useEffect } from "react";
 
 
 export type Props = {};
 export const Home = (props: Props) => {
 
     const navigate = useNavigate()
-    // Refs
-    const telegramWrapperRef = useRef<HTMLDivElement>(null);
+    const { handleLogin } = useAA();
     // const { webApp } = useTelegram()
-    const { handleLogin } = useAA()
 
     const onGetBalance = () => {
         return 0;
@@ -21,12 +20,14 @@ export const Home = (props: Props) => {
 
     const onHandleSend = () => {
         // handleLogin('google')
-        // navigate('/send')
+        navigate('/send')
     }
 
     useEffect(() => {
+        // handleLogin();
+
         // Replace 'YOUR_BOT_USERNAME' with your actual bot username
-        handleLogin()
+
         const botUsername = 'televicbot';
 
         const script = document.createElement('script');
@@ -39,19 +40,9 @@ export const Home = (props: Props) => {
 
         document.body.appendChild(script);
     }, [handleLogin])
-    useEffect(() => {
-        const scriptElement = document.createElement('script');
-        scriptElement.src = 'https://telegram.org/js/telegram-widget.js?22';
-        scriptElement.setAttribute('data-telegram-login', 'victiontelebot');
-        scriptElement.setAttribute('data-size', 'large');
-        scriptElement.setAttribute('data-auth-url', 'https://e592-58-187-229-24.ngrok-free.app/login');
-        scriptElement.async = true;
-
-        telegramWrapperRef?.current?.appendChild(scriptElement);
-    }, []);
 
     return (
-        <div className="bg-[#12121d] h-full  p-[16px]" ref={telegramWrapperRef}>
+        <div className="bg-[#877661] h-full  p-[16px]">
             <div className="flex-col text-[#fff] justify-center items-center flex pt-[40px] pb-[30px]">
                 <h2 className="text-[4.4rem] font-bold">${onGetBalance()}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
@@ -63,7 +54,7 @@ export const Home = (props: Props) => {
                 <Action name="stake" title="Deposit" onAction={() => { }} />
                 <Action name="withdraw" title="Withdraw" onAction={() => { }} />
             </div>
-            <div className="bg-[#1c1c1c] p-[10px] rounded-[8px] mt-[30px] ">
+            <div className="bg-[#1e1e1e] p-[10px] rounded-[8px] mt-[30px] ">
                 <div className="flex flex-row justify-between">
                     <p className="text-[1.28rem] text-[#fff] flex flex-row items-center font-[500] rounded-[20px] opacity-50">
                         My Asset
@@ -74,8 +65,8 @@ export const Home = (props: Props) => {
                 </div>
                 <div className="mt-[15px]">
                     <AssetCard
-                        name={"near"}
-                        tokenName={"Near"}
+                        name={"viction"}
+                        tokenName={"Vic"}
                         tokenValue={0}
                         currentPrice={2.27}
                         exchangePrice={0}
@@ -83,8 +74,8 @@ export const Home = (props: Props) => {
                         onAction={onHandleSend}
                     />
                     <AssetCard
-                        name={"near"}
-                        tokenName={"Near"}
+                        name={"eth"}
+                        tokenName={"eth"}
                         tokenValue={0}
                         currentPrice={2.27}
                         exchangePrice={0}

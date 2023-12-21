@@ -11,9 +11,10 @@ export type Props = {
 };
 export const AssetCard = ({ name, tokenName, tokenValue, currentPrice, exchangePrice, onAction }: Props) => {
     return (
-        <div className="flex flex-row items-center bg-[#1a202c] rounded-[8px] px-[10px] py-[12px] mt-[10px] cursor-pointer" onClick={onAction}>
+        <div className="flex flex-row items-center bg-[#1e1e1e] rounded-[8px] px-[10px] py-[12px] mt-[10px] cursor-pointer" onClick={onAction}>
             <div>
-                <PNGIcon name="near" width={32} height={32} />
+                <PNGIcon name={name} width={32} height={32}  />
+                
             </div>
             <div className="flex-1 flex flex-col text-[#fff] ml-[8px]">
                 <div className="flex-row flex justify-between">

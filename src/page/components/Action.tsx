@@ -12,7 +12,7 @@ export const Action = ({ name, title, onAction }: Props) => {
                 className="w-fit p-[1.5rem] rounded-[15px] text-[#fff]"
                 style={{
                     background:
-                        "linear-gradient(209deg, rgb(37, 5, 202), rgb(120, 77, 229))",
+                        "linear-gradient(90deg, rgba(135,118,97,1) 0%, rgba(30,30,16,1) 100%)",
                 }}
                 onClick={onAction}
             >
