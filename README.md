@@ -30,6 +30,8 @@ The Victorious Wallet, built on Viction, offers a seamless entry point for web2 
    npm install
    npm start
 
+2. Using the Victorios Wallet:
+https://t.me/televicbot
 
 🤝 Contributing
 We welcome contributions! If you'd like to contribute to the Victorious Wallet project, please follow our Contribution Guidelines.
@@ -38,5 +40,4 @@ We welcome contributions! If you'd like to contribute to the Victorious Wallet p
 Special thanks to all contributors who have made this project possible.
 
 Enjoy using Victorious Wallet! Feel free to reach out with any questions or feedback.
-
-    https://github.com/tuyendev2505/telebot-vic/issues
+https://github.com/tuyendev2505/telebot-vic/issues
