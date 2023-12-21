@@ -82,6 +82,15 @@ export const Home = (props: Props) => {
                         title={""}
                         onAction={onHandleSend}
                     />
+                                <AssetCard
+                        name={"usdt"}
+                        tokenName={"usdt"}
+                        tokenValue={0}
+                        currentPrice={2.27}
+                        exchangePrice={0}
+                        title={""}
+                        onAction={onHandleSend}
+                    />
                 </div>
             </div>
         </div>
