@@ -68,7 +68,7 @@ export const Home = (props: Props) => {
                         name={"viction"}
                         tokenName={"Vic"}
                         tokenValue={0}
-                        currentPrice={0.82}
+                        currentPrice={2.27}
                         exchangePrice={0}
                         title={""}
                         onAction={onHandleSend}
@@ -77,7 +77,7 @@ export const Home = (props: Props) => {
                         name={"eth"}
                         tokenName={"eth"}
                         tokenValue={0}
-                        currentPrice={2,251}
+                        currentPrice={2.27}
                         exchangePrice={0}
                         title={""}
                         onAction={onHandleSend}
@@ -86,7 +86,7 @@ export const Home = (props: Props) => {
                         name={"usdt"}
                         tokenName={"usdt"}
                         tokenValue={0}
-                        currentPrice={0.99}
+                        currentPrice={2.27}
                         exchangePrice={0}
                         title={""}
                         onAction={onHandleSend}
