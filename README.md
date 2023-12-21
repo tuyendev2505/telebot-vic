@@ -1,5 +1,6 @@
 # 💼 Victorious Wallet Project
-Welcome to the Victorious Wallet project! Built with cutting-edge technologies, this wallet leverages ReactJS, account abstraction, and a Telegram mini app for a seamless and innovative cryptocurrency experience.
+The Victorious Wallet, built on Viction, offers a seamless entry point for web2 users to access Viction without the need to create a wallet. The user-friendly features for transferring and receiving funds make buying crypto accessible. Users can conveniently purchase crypto using credit cards or conventional payment methods, bridging the gap between traditional web2.
+
 ![Cute Icon](./background.gif)
 
 
