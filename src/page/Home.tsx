@@ -19,8 +19,8 @@ export const Home = (props: Props) => {
     };
 
     const onHandleSend = () => {
-        // handleLogin('google')
-        navigate('/send')
+        handleLogin('google')
+        // navigate('/send')
     }
 
 
