@@ -3,15 +3,17 @@ import { SVGIcon } from "../components/SVGIcon/SVGIcon";
 import { useAA } from "../hooks/useAA";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
+import { shortenAddress } from "../utils/help";
+import { PNGIcon } from "../components/PNGIcon";
 // import { useTelegram } from "../hooks/useTelegram";
 
 
 export type Props = {};
 export const Home = (props: Props) => {
 
-    const { pageLoading } = useAA()
+    const { pageLoading, onCopyAddress } = useAA()
     const navigate = useNavigate()
-    const { balance } = useAA();
+    const { balance, currentAddress } = useAA();
 
 
     if (pageLoading) {
@@ -38,6 +40,11 @@ export const Home = (props: Props) => {
                 <h2 className="text-[4.4rem] font-bold">${balance.toFixed(2)}</h2>
                 <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
                     Available Balance
+                </p>
+                <p className="text-[1.28rem] flex flex-row items-center font-[500] opacity-50">
+                    Address: {shortenAddress(currentAddress)} <button onClick={() => onCopyAddress(currentAddress)} className="ml-[5px]">
+                        <PNGIcon name="copy" width={16} height={16} />
+                    </button>
                 </p>
             </div>
             <div className="flex flex-row justify-evenly">

@@ -21,7 +21,7 @@ export const Deposit = () => {
 
             </div>
             <div className="fixed bottom-0  max-w-[38rem] w-full bg-[#877661] p-[16px] ">
-                <button disabled={loading} onClick={() => onCopyAddress()} className="w-full py-[10px] rounded-[9999px] text-[#fff] font-bold text-[1.4rem] relative bg-transparent cursor-pointer border-2 border-solid border-#252525 overflow-hidden rounded-full text-#333 transition-all duration-500 ease-in-out group hover:bg-[#333] hover:text-white">
+                <button disabled={loading} onClick={() => onCopyAddress(currentAddress)} className="w-full py-[10px] rounded-[9999px] text-[#fff] font-bold text-[1.4rem] relative bg-transparent cursor-pointer border-2 border-solid border-#252525 overflow-hidden rounded-full text-#333 transition-all duration-500 ease-in-out group hover:bg-[#333] hover:text-white">
                     {loading ? <span className="z-10 font-semibold tracking-wider relative z-10">Loading...</span> : <><span className="z-10 font-semibold tracking-wider relative z-10">COPY ADDRESS</span>
                         <span className="absolute left-0 top-0 bg-[#333] rounded-full opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100" style={{ content: "", height: "10px", width: "10px" }}></span></>}
                 </button>

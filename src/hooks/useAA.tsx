@@ -130,15 +130,15 @@ export const useAA = () => {
         }
     }
 
-    const onCopyAddress = async () => {
+    const onCopyAddress = async (text: string) => {
         setLoading(true)
         toast.success("Copy success!")
         if ('clipboard' in navigator) {
             setLoading(false)
-            return await navigator.clipboard.writeText(currentAddress);
+            return await navigator.clipboard.writeText(text);
         } else {
             setLoading(false)
-            return document.execCommand('copy', true, currentAddress);
+            return document.execCommand('copy', true, text);
         }
 
     }

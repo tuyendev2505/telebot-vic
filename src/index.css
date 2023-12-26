@@ -7,3 +7,7 @@ html {
   font-family: "Inter", "Work Sans", "sans-serif";
   font-size: 62.5%;
 }
+
+.particle-pwe-btn {
+  display: none;
+}
