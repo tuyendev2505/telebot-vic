@@ -87,6 +87,8 @@ export const useAA = () => {
                 getBalanceOf()
                 setUserInfo(user)
             }
+            setPageLoading(false)
+            return
         } catch (error) {
             toast.error('Connect account abstraction Error!')
         } finally {
