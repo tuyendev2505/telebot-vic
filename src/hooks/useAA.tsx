@@ -1,6 +1,6 @@
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ParticleNetwork, UserInfo } from '@particle-network/auth';
-import { Ethereum, VictionTestnet } from '@particle-network/chains';
+import { Ethereum, Viction} from '@particle-network/chains';
 import { ParticleProvider } from '@particle-network/provider';
 import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
@@ -16,8 +16,8 @@ const config = {
 
 const particle = new ParticleNetwork({
     ...config,
-    chainName: VictionTestnet.name,
-    chainId: VictionTestnet.id,
+    chainName: Viction.name,
+    chainId: Viction.id,
     wallet: { displayWalletEntry: true }
 });
 
@@ -25,7 +25,7 @@ const smartAccount = new SmartAccount(new ParticleProvider(particle.auth), {
     ...config,
     aaOptions: {
         accountContracts: {
-            SIMPLE: [{ chainIds: [VictionTestnet.id], version: '1.0.0' }]
+            SIMPLE: [{ chainIds: [Viction.id], version: '1.0.0' }]
         }
     }
 });
