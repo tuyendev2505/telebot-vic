@@ -47,6 +47,7 @@ export const useAA = () => {
     const [errorAddress, setErrorAddress] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const [currentAddress, setCurrentAddress] = useState<string>('')
+    const [pageLoading, setPageLoading] = useState<boolean>(false)
 
     const onChangeValueSend = (e: any) => {
         const value = +e.target.value ?? 0
@@ -76,13 +77,20 @@ export const useAA = () => {
 
 
     const handleLogin = async () => {
-        const user = !particle.auth.isLogin()
-            ? await particle.auth.login({ preferredAuthType: 'google' }) :
-            await particle.auth.getUserInfo();
+        try {
+            setPageLoading(true)
+            const user = !particle.auth.isLogin()
+                ? await particle.auth.login({ preferredAuthType: 'google' }) :
+                await particle.auth.getUserInfo();
 
-        if (user) {
-            getBalanceOf()
-            setUserInfo(user)
+            if (user) {
+                getBalanceOf()
+                setUserInfo(user)
+            }
+        } catch (error) {
+            toast.error('Connect account abstraction Error!')
+        } finally {
+            setPageLoading(false)
         }
     };
 
@@ -146,6 +154,7 @@ export const useAA = () => {
         errorAddress,
         loading,
         currentAddress,
+        pageLoading,
         sendTransaction,
         setToAddress,
         onChangeValueSend,
