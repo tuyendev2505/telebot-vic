@@ -24,7 +24,7 @@ export const AssetCard = ({ name, tokenName, tokenValue, currentPrice, exchangeP
                 </div>
                 <div className="flex-row flex justify-between mt-[5px]">
                     <p className="text-[1.2rem]">${currentPrice}</p>
-                    <p className="text-[1.2rem]">≈ ${exchangePrice}</p>
+                    <p className="text-[1.2rem]">≈ ${exchangePrice?.toFixed(2) ?? 0}</p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { SVGIcon } from "../components/SVGIcon/SVGIcon";
-import { useAA } from "../hooks/useAA";
+import { BALANCE_RATE, useAA } from "../hooks/useAA";
 import { Action } from "./components/Action";
 import { AssetCard } from "./components/AssetCard";
 import { shortenAddress } from "../utils/help";
@@ -64,9 +64,9 @@ export const Home = (props: Props) => {
                     <AssetCard
                         name={"viction"}
                         tokenName={"Vic"}
-                        tokenValue={0}
-                        currentPrice={2.27}
-                        exchangePrice={0}
+                        tokenValue={balance}
+                        currentPrice={BALANCE_RATE}
+                        exchangePrice={balance * BALANCE_RATE}
                         title={""}
                         onAction={() => navigate('/tx/' + currentAddress)}
                     />

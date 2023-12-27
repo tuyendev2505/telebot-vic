@@ -37,7 +37,7 @@ particle.setERC4337({
     version: '1.0.0'
 });
 
-const BALANCE_RATE = 0.8
+export const BALANCE_RATE = 0.8
 export const useAA = () => {
     const [userInfo, setUserInfo] = useState<UserInfo | null>();
     const [balance, setBalance] = useState<number>(0);
