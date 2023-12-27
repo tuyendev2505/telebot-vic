@@ -1,45 +1,57 @@
-# 💼 Victorious Wallet Project
-The Victorious Wallet, built on Viction, offers a seamless entry point for web2 users to access Viction without the need to create a wallet. The user-friendly features for transferring and receiving funds make buying crypto accessible. Users can conveniently purchase crypto using credit cards or conventional payment methods, bridging the gap between traditional web2.
+###Getting Started with Create React App
+This project was bootstrapped with Create React App.
 
-![Cute Icon](./background.gif)
+##Available Scripts
+In the project directory, you can run:
 
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
 
-## ✨ Features
+##The page will reload when you make changes.
+You may also see any lint errors in the console.
 
-- **Easy Access:** No need to create a separate wallet - get started with Viction effortlessly.
+npm test
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
 
-- **User-Friendly Transactions:** Enjoy a smooth experience for buying, transferring, and receiving crypto.
+npm run build
+##Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- **Payment Options:** purchase your wallet with crypto using credit cards or traditional payment methods.
+##The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
-## 🚀 Technologies Used
+##See the section about deployment for more information.
 
-- **ReactJS:** A popular JavaScript library for building user interfaces, providing a robust and efficient front-end foundation for Victorious Wallet.
+npm run eject
+##Note: this is a one-way operation. Once you eject, you can't go back!
 
-- **Account Abstraction:** Account Abstraction helps you experience web3 products as easily as interacting with web2, enhancing security and streamlining the user experience for a safe and accessible environment for crypto transactions.
+##If you aren't satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
 
-- **Telegram Mini App:** Explore the integration of a Telegram mini app to bring additional functionality and communication channels to Victorious Wallet users.
+##Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except eject will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 🚦 Getting Started
+##You don't have to ever use eject. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-1. Clone the repository:
+##Learn More
+You can learn more in the Create React App documentation.
 
-   ```bash
-   git clone https://github.com/tuyendev2505/telebot-vic.git
-   cd telebot-vic
-   npm install
-   npm start
+##To learn React, check out the React documentation.
 
-2. Using the Victorios Wallet:
+##Code Splitting
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-https://t.me/televicbot
+##Analyzing the Bundle Size
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-🤝 Contributing
-We welcome contributions! If you'd like to contribute to the Victorious Wallet project, please follow our Contribution Guidelines.
+##Making a Progressive Web App
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-🙌 Acknowledgements
-Special thanks to all contributors who have made this project possible.
+##Advanced Configuration
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-Enjoy using Victorious Wallet! Feel free to reach out with any questions or feedback.
+##Deployment
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-https://github.com/tuyendev2505/telebot-vic/issues
+##npm run build fails to minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
