@@ -2,12 +2,13 @@ import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ParticleNetwork, UserInfo } from '@particle-network/auth';
 import { VictionTestnet } from '@particle-network/chains';
 import { ParticleProvider } from '@particle-network/provider';
+import axios from 'axios';
 import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 
-const config = {
+export const config = {
     projectId: 'd5b563c0-ed88-41ac-bbfd-95a96f97ef5d' ?? process.env.REACT_APP_PROJECT_ID ?? '',
     clientKey: 'cEGmxx2bHQWjOGuzRlnW40e27lpdxB4Kyg8vFaeb' ?? process.env.REACT_APP_CLIENT_KEY ?? '',
     appId: '46322ad5-e618-44b1-af4c-f51260c00f00' ?? process.env.REACT_APP_APP_ID ?? '',
@@ -47,6 +48,7 @@ export const useAA = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [currentAddress, setCurrentAddress] = useState<string>('')
     const [pageLoading, setPageLoading] = useState<boolean>(false)
+    const [txs, setTxs] = useState<any>([])
 
     const onChangeValueSend = (e: any) => {
         const value = +e.target.value ?? 0
@@ -97,6 +99,26 @@ export const useAA = () => {
         }
     };
 
+    const getTransactionByAddress = async (address: string) => {
+        try {
+            const response = await axios.post('https://rpc.particle.network/evm-chain', {
+                chainId: VictionTestnet.id,
+                jsonrpc: '2.0',
+                id: 1,
+                method: 'particle_getTransactionsByAddress',
+                params: [`${address}`],
+            }, {
+                auth: {
+                    username: config.projectId,
+                    password: config.clientKey
+                }
+            });
+            console.log("response.data", response.data);
+            setTxs(response.data.results)
+        } catch (error) {
+            setTxs([])
+        }
+    }
 
     const sendTransaction = async () => {
         setLoading(true)
@@ -109,6 +131,7 @@ export const useAA = () => {
                 to: toAddress,
                 value: ethers.utils.parseEther(valueSend.toString()),
             };
+
             const txResponse = await signer.sendTransaction(tx);
             const txReceipt = await txResponse.wait();
             console.log('Transaction hash:', txReceipt.transactionHash);
@@ -145,6 +168,7 @@ export const useAA = () => {
     }
 
     useEffect(() => {
+
         handleLogin()
     }, []);
 
@@ -158,12 +182,15 @@ export const useAA = () => {
         loading,
         currentAddress,
         pageLoading,
+        txs,
         sendTransaction,
         setToAddress,
         onChangeValueSend,
         onUseMaxBalanceSend,
         onChangeAddressSend,
         onCopyAddress,
-        handleLogin
+        handleLogin,
+        getTransactionByAddress,
+
     };
 };

@@ -3,6 +3,7 @@ import { Home } from "./page/Home";
 import { Send } from "./page/Send";
 import { Deposit } from "./page/Deposit";
 import { Withdraw } from "./page/Withdraw";
+import { Transaction } from "./page/Transaction";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path={'/send'} element={<Send />} />
         <Route path={'/deposit'} element={<Deposit />} />
         <Route path={'/withdraw'} element={<Withdraw />} />
+        <Route path={'/tx/:txId'} element={<Transaction />} />
       </Routes>
     </div>
   );

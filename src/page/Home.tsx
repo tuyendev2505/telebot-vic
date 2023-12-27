@@ -11,9 +11,8 @@ import { PNGIcon } from "../components/PNGIcon";
 export type Props = {};
 export const Home = (props: Props) => {
 
-    const { pageLoading, onCopyAddress } = useAA()
+    const { pageLoading, balance, currentAddress, onCopyAddress } = useAA()
     const navigate = useNavigate()
-    const { balance, currentAddress } = useAA();
 
 
     if (pageLoading) {
@@ -69,7 +68,7 @@ export const Home = (props: Props) => {
                         currentPrice={2.27}
                         exchangePrice={0}
                         title={""}
-                        onAction={() => { }}
+                        onAction={() => navigate('/tx/' + currentAddress)}
                     />
                     <AssetCard
                         name={"eth"}
