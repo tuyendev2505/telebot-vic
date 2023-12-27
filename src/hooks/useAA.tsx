@@ -1,10 +1,9 @@
 import { AAWrapProvider, SmartAccount } from '@particle-network/aa';
 import { ParticleNetwork, UserInfo } from '@particle-network/auth';
-import { Ethereum, VictionTestnet } from '@particle-network/chains';
+import { VictionTestnet } from '@particle-network/chains';
 import { ParticleProvider } from '@particle-network/provider';
 import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -65,6 +64,7 @@ export const useAA = () => {
         const address = await smartAccount.getAddress();
         const balance = await customProvider.getBalance(address);
         setBalance(+ethers.utils.formatEther(balance));
+        console.log("BALANCE", balance)
         setCurrentAddress(address)
     }
 
@@ -162,6 +162,7 @@ export const useAA = () => {
         onChangeValueSend,
         onUseMaxBalanceSend,
         onChangeAddressSend,
-        onCopyAddress
+        onCopyAddress,
+        handleLogin
     };
 };
