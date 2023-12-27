@@ -83,6 +83,7 @@ export const useAA = () => {
                 ? await particle.auth.login({ preferredAuthType: 'google' }) :
                 await particle.auth.getUserInfo();
 
+            console.log("User", user)
             if (user) {
                 getBalanceOf()
                 setUserInfo(user)
