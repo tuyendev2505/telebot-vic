@@ -52,7 +52,7 @@ export const Transaction = (props: Props) => {
 
         getTxFromAddress()
     }, [address])
-    const scanUrl = 'https://testnet.tomoscan.io/tx/'
+    const scanUrl = 'https://testnet.vicscan.xyz/tx/'
 
     return (
         <div className="bg-[#877661] h-full  p-[16px]">
