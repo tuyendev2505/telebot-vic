@@ -10,6 +10,7 @@ import { TxCard } from "./components/TxCard";
 import axios from "axios";
 import { VictionTestnet } from "@particle-network/chains";
 import { Back } from "./components/Back";
+import { ethers } from "ethers";
 // import { useTelegram } from "../hooks/useTelegram";
 
 
@@ -71,8 +72,8 @@ export const Transaction = (props: Props) => {
                         <p className="text-[1.2rem] font-bold">AMOUNT</p>
                         <p className="text-[1.2rem] font-bold">HASH</p>
                     </div>
-                    {txs?.map((item: any) => {
-                        return <TxCard name={"viction"} from={item.from} hash={item.hash} amount={"100"} link={scanUrl + item.hash} onAction={() => { }} />
+                    {txs?.filter((item: any) => item.status == 3)?.map((item: any) => {
+                        return <TxCard name={"viction"} from={item.from} hash={item.hash} amount={ethers.utils.formatEther(item.value)} link={scanUrl + item.hash} onAction={() => { }} />
                     }) ?? null}
                 </div>
             </div>
